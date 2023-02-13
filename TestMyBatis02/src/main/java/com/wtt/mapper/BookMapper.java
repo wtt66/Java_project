@@ -10,6 +10,9 @@ public interface BookMapper {
     public abstract Book selectOneBook2(Book book);
     public abstract int insertBook(Book book);
     public abstract int deleteBook(int id);
+
+
+
     public abstract int updateBook(Book book,int id);
 
 }
