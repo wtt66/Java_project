@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wtt.mapper.BookMapper">
+    <!--public list selectAllBooks(){}-->
+    <select id="selectAllBooks" resultType="Book">
+        select * from t_book
+    </select>
+    <select id="selectOneBook" resultType="Book">
+        select *from t_book where name = #{arg0} and author = #{arg1}
+    </select>
+    <select id="selectOneBook2" resultType="Book">
+        select *from t_book where name = #{name} and author = #{author}
+    </select>
+    <insert id="insertBook" >
+        insert into t_book (id,name,author,price) values(#{id},#{name},#{author},#{price})
+    </insert>
+    <delete id="deleteBook" >
+        delete from t_book where id = #{arg0}
+    </delete>
+    <update id="updateBook">
+        update t_book set id=#{arg0.id},name=#{arg0.name},author=#{arg0.author},price=#{arg0.price} where id = #{arg1}
+    </update>
+</mapper>

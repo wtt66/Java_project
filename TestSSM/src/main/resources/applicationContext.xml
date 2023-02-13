@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 【1】连接数据库，获取数据源，配置数据源，设置数据库连接的四个参数  -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!-- 利用setter方法完成属性注入，四个参数名固定的，注意源码中虽然没有driverClassName属性，但是有driverClassName的setter方法 -->
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/jiuye?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=GMT%2B8&amp;allowPublicKeyRetrieval=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456."/>
+    </bean>
+    <!-- 【2】获取SqlSessionFactory对象  -->
+    <!-- 以前SqlSessionFactory都是在测试代码中我们自己创建的，但是现在不用了，整合包中提供的对于SqlSessionFactory的封装。里面提供了MyBatis全局配置文件所有配置的属性 -->
+    <bean id="factory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 注入数据源       -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 给包下类起别名       -->
+        <property name="typeAliasesPackage" value="com.wtt.pojo"></property>
+        <!-- 新加入 -->
+        <property name="configLocation" value="classpath:mybatis.xml"></property>
+    </bean>
+    <!-- 【3】扫描mapper文件   -->
+    <!-- 设置扫描哪个包，进行接口绑定-->
+    <!-- 所有Mapper接口代理对象都能创建出来，可以直接从容器中获取出来。 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 和SqlSessionFactory产生联系，以前接口绑定sqlSession.getMapper(BookMapper.class);
+        都是通过以前接口绑定sqlSession来调用mapper，所以这里一定要注入工厂啊
+         注意这里sqlSessionFactoryBeanName类型为String，所以用value把工厂名字写过来就行-->
+        <property name="sqlSessionFactoryBeanName" value="factory"></property>
+        <!-- 扫描的包 -->
+        <property name="basePackage" value="com.wtt.mapper"></property>
+    </bean>
+
+    <!-- 【4】扫描包下注解 -->
+    <context:component-scan base-package="com.wtt.service"></context:component-scan>
+</beans>

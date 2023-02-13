@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+        <context:component-scan base-package="com.wtt.pojo"></context:component-scan>
+<!--    <bean id = "b" class = "com.wtt.pojo.Book">-->
+<!--        <property name="id" value="6"></property>-->
+<!--        <property name="name" value="计算机组成原理"></property>-->
+<!--    </bean>-->
+<!--    <bean id = "boy" class="com.wtt.pojo.Boy">-->
+<!--        <property name="age" value="22"></property>-->
+<!--        <property name="name" value="齐齐"></property>-->
+<!--    </bean>-->
+<!--    <bean id="girl" class = "com.wtt.pojo.Girl">-->
+<!--        <constructor-arg name="age" value="23"></constructor-arg>-->
+<!--        <constructor-arg name="name" value="露露"></constructor-arg>-->
+<!--        <constructor-arg name="boyfriend" ref="boy"></constructor-arg>-->
+<!--    </bean>-->
+
+
+</beans>
