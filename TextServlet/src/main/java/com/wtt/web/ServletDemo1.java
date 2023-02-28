@@ -6,6 +6,7 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/demo1",loadOnStartup = 1)
 public class ServletDemo1 implements Servlet {
+    ServletConfig servletConfig;
 
 
     /*
@@ -17,13 +18,14 @@ public class ServletDemo1 implements Servlet {
     * */
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
+        this.servletConfig = servletConfig;
         System.out.println("init...");
 
     }
 
     @Override
     public ServletConfig getServletConfig() {
-        return null;
+        return servletConfig;
     }
 
 
