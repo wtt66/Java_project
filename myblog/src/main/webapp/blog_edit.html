@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/blog_edit.css">
+    <link rel="stylesheet" href="editor.md/css/editormd.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <!-- 左边 -->
+        <div class="nav-left">
+            <img src="img/logo2.jpg" alt="">
+            <span>我的博客系统</span>
+        </div>
+        <!-- 右边 -->
+        <div class="nav-right">
+            <a href="blog_list.html">主页</a>
+            <a href="blog_edit.html">写博客</a>
+            <a href="logout">注销</a>
+        </div>
+    </div>
+    <!-- 文章编辑区 -->
+    <div id="edit-container">
+        <!-- 输入标题，发布按钮 -->
+        <div id="edit-title">
+            <input type="text" id="title" placeholder="在这里写下文章标题">
+            <button id="publish-btn">发布文章</button>
+        </div>
+        <!-- 文章内容 -->
+        <div id="edit-content">
+            <textarea id="content" style="display: none;"></textarea>
+        </div>
+    </div>
+
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="editor.md/lib/marked.min.js"></script>
+<script src="editor.md/lib/prettify.min.js"></script>
+<script src="editor.md/editormd.min.js"></script>
+<script>
+    // 使用jquery框架的$(function(){}), 页面加载完以后，执行函数内的代码
+    $(function(){
+        var editor = editormd("edit-content", {
+            //设置高宽，值和css写法一样
+            width: "100%",
+            // 高度是父容器edit-container全部高度减去标题50px
+            height: "calc(100% - 50px)",
+            // 初始化的内容（左边markdown源码）
+            markdown: "# 第一篇博客文章",
+            // 插件路径
+            path: "editor.md/lib/",
+            saveHTMLToTextarea: true,
+        })
+    })
+
+</script>
+</html>

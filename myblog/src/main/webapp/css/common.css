@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* html, body设置高度宽度，及背景图片 */
+html, body {
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/cat.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nav {
+    /* 和父容器body一样宽 */
+    width: 100%;
+    height: 50px;
+    /* 背景颜色：rgba也可以设置，第4个参数是透明度（0-1数值），越高就越不透明 */
+    background-color: rgba(51, 51, 51, 0.4);
+    /* 左右两个子div分两列，使用弹性布局 */
+    display: flex;
+    /* 子div内容垂直居中 */
+    align-items: center;
+}
+.nav-left {
+    /* 占据父容器nav整个宽度的40% */
+    width: 40%;
+    height: 40px;
+    display: flex;
+}
+.nav-left>img {
+    /* 左边间隔 */
+    margin-left: 60px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.nav-left>span {
+    margin-left: 10px;
+    /* 文本占据整个高度 */
+    line-height: 40px;
+    /* 颜色 */
+    color: white;
+}
+.nav-right {
+    width: 60%;
+    height: 40px;
+    /* 3个a标签也要有高宽，靠右，父元素使用弹性布局 */
+    display: flex;
+    align-items: center;
+    /* 水平靠右 */
+    justify-content: flex-end;
+    /* 最后一个a标签，留多一点空白间隔 */
+    padding-right: 100px;
+}
+.nav-right>a {
+    line-height: 40px;
+    /* 去除下划线 */
+    text-decoration: none;
+    /* 颜色 */
+    color: white;
+    margin-right: 20px;
+}
+
+/* 版心 */
+.container {
+    /* 固定宽度：页面宽度多，居中；页面宽度少，版心还是固定的宽度 */
+    width: 1000px;
+    /* 高度：和导航栏一起占据页面整个高度 */
+    /* calc: 计算函数，注意-前后都有空格 */
+    height: calc(100% - 50px);
+    /* 水平居中 */
+    margin: 0 auto;
+    /* 两个子div分两列，一行，父容器使用弹性布局 */
+    display: flex;
+    /* 左右子div都设置宽度，中间留空 */
+    justify-content: space-between;
+}
+.container-left {
+    width: 200px;
+    height: 100%;
+}
+.container-right {
+    width: 795px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    /* 内容溢出设置，溢出使用滚动条 */
+    overflow: auto;
+}
+
+.card {
+    padding: 30px;
+    /* 背景色 */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* 圆角矩形 */
+    border-radius: 10px;
+}
+.card>img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+}
+.card>h3 {
+    text-align: center;
+    margin-top: 10px;
+}
+.card>a {
+    /* 去除下划线 */
+    text-decoration: none;
+    color: gray;
+    /* a标签是内联元素，设置宽高和内外边距无效 */
+    display: block;
+    margin-top: 20px;
+    /* 文本居中 */
+    text-align: center;
+}
+.counter {
+    width: 100px;
+    /* div水平居中 */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.counter>span {
+    width: 60px;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.row {
+    padding: 20px;
+}
+.detail {
+    padding: 50px 30px;
+}
+.row>.title,
+.detail>.title {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+.row>.date,
+.detail>.date {
+    text-align: center;
+    color: green;
+    margin-top: 20px;
+}
+.row>.desc,
+.detail>.desc>p {
+    text-indent: 2em;
+    margin-top: 15px;
+}
+
+.row a {
+    /* 去除下划线 */
+    text-decoration: none;
+    /* 边框和字体颜色 */
+    border: 2px solid black;
+    color: black;
+    padding: 8px;
+}
+.row>.to-detail {
+    margin-top: 15px;
+    text-align: center;
+}
+.row a:hover {
+    background-color: black;
+    color: white;
+}

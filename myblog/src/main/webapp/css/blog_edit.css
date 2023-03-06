@@ -1,0 +1,34 @@
+#edit-container {
+    width: 900px;
+    height: calc(100% - 50px);
+    margin: 0 auto;
+}
+#edit-title {
+    height: 50px;
+    display: flex;
+    /* 父容器高度高一点，子元素矮一点，设置弹性布局垂直居中，就可以上下保留一点空隙 */
+    align-items: center;
+    justify-content: space-between;
+}
+#edit-title>input {
+    width: 89%;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+#edit-title>button {
+    width: 10%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: orange;
+    color: white;
+
+    /* 动画过渡: all表示伪类所有样式，在0.3秒过渡生效 */
+    transition: all 0.3s;
+}
+#edit-title>button:active {
+    background-color: gray;
+}
