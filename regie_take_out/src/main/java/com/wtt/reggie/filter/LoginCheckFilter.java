@@ -1,6 +1,7 @@
 package com.wtt.reggie.filter;
 
 import com.alibaba.fastjson.JSON;
+import com.wtt.reggie.common.BaseContext;
 import com.wtt.reggie.common.R;
 import com.wtt.reggie.entity.Employee;
 import lombok.extern.slf4j.Slf4j;
@@ -54,12 +55,23 @@ public class LoginCheckFilter implements Filter {
             return;
         }
 
+
+
 //        4、判断登录状态，如果已登录，则直接放行
         if(request.getSession().getAttribute("employee")!=null){
             log.info("用户{}已登录",request.getSession().getAttribute("employee"));
+
+//            //查看线程id
+//            long id = Thread.currentThread().getId();
+//            log.info("线程id为：{}",id);
+            Long empId = (Long)request.getSession().getAttribute("employee");
+            BaseContext.setCurrentId(empId);
+
             filterChain.doFilter(request,response);
             return;
         }
+
+
 
 //        5、如果未登录则返回未登录结果,通过输出流方式向客户页面返回数据
         log.info("用户未登录！");
