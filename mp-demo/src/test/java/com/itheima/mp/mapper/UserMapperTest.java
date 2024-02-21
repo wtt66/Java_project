@@ -99,7 +99,9 @@ class UserMapperTest {
         //3.执行更新
         userMapper.update(user,wrapper);
 
-    }@Test
+    }
+
+    @Test
     void testUpdetaWrapper(){
         //1.更新的数据
         List<Long> ids= Arrays.asList(1L,3L,4L);
@@ -109,6 +111,18 @@ class UserMapperTest {
                 .in("id",ids);
         //3.执行更新
         userMapper.update(null, wrapper);
+    }
+
+    @Test
+    void testCustomSqlUpdate(){
+        //1.更新的数据
+        List<Long> ids= Arrays.asList(1L,3L,4L);
+        int amount = 300;
+        //2.定义更新的条件
+        QueryWrapper<User> wrapper = new QueryWrapper<User>()
+                .in("id",ids);
+        //3.调用自定义sql方法
+        userMapper.updateBalanceByIds(wrapper, amount);
 
     }
 }
