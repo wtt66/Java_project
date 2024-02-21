@@ -85,6 +85,7 @@ class UserMapperTest {
         List<User> users = userMapper.selectList(wrapper);
         users.forEach(System.out::println);
 
+
     }
 
     @Test
