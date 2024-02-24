@@ -30,6 +30,11 @@
             <artifactId>jul-to-slf4j</artifactId>
             <version>1.7.30</version>
         </dependency>
+        <!--eureka客户端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>app</finalName>
