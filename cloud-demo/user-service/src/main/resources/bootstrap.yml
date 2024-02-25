@@ -1,0 +1,10 @@
+spring:
+  application: #名称
+    name: userservice
+  profiles: #环境
+    active: dev
+  cloud: #地址
+    nacos:
+      server-addr: localhost:8848
+      config:
+        file-extension: yaml  #文件后缀名
