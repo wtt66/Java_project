@@ -31,8 +31,8 @@ public class OrderApplication {
 
     /*
     * 修改负载均衡策略*/
-    @Bean
+    /*@Bean
     public IRule randomRule(){
         return new RandomRule();
-    }
+    }*/
 }
