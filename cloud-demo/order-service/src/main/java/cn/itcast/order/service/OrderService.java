@@ -21,7 +21,8 @@ public class OrderService {
 
         //2.通过RestTemplat发起HTTP请求
         //2.1.url路径
-        String url = "http://localhost:8081/user/" + order.getUserId();
+        //String url = "http://localhost:127.0.0.1/user/" + order.getUserId();
+        String url = "http://userservice/user/" + order.getUserId();//使用服务器名称实现软编码
         //2.2.发送url路径实现远程调用，并将返回josn对象转化为实体类对象
         User user = restTemplate.getForObject(url,User.class);
         //3.封装user到order
