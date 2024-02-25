@@ -6,6 +6,7 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
+#  nacos名称、地址、环境转移到bootstrap.yml中
   application:
     name: orderservice #order服务信息
   cloud:
@@ -13,8 +14,8 @@ spring:
       server-addr: localhost:8848 #nacos服务地址
       discovery:
         cluster-name: HZ
-        namespace: ec8540b0-5065-454f-86c6-79beb1af69da #dev环境
-
+#        namespace: ec8540b0-5065-454f-86c6-79beb1af69da #dev环境
+        ephemeral: false #是否是临时实例
 
 mybatis:
   type-aliases-package: cn.itcast.user.pojo
